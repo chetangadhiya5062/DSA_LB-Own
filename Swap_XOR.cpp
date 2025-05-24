@@ -2,7 +2,7 @@
 using namespace std;
 
 int main(){
-    int a = 5, b = 10;
+    int a = 1, b = 15;
     cout << "Before swapping: a = " << a << ", b = " << b << endl;
 
     a= a^b;
