@@ -17,9 +17,11 @@ int searchNearlySorted(int arr[], int n, int target){
             return mid+1; // Target found at mid+1
         }
         if (arr[mid] < target){
+            //+1 thi comparision 1 vadhu thashe dar vakhate.. e time decrease krva +2
             s = mid + 2; // Move to the right side, skipping the next element
         }
         else {
+            //+1 thi comparision 1 vadhu thashe dar vakhate.. e time decrease krva +2
             e = mid - 2; // Move to the left side, skipping the previous element
         }
         mid = s + (e - s) / 2; // Recalculate mid
