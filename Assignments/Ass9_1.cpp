@@ -29,27 +29,92 @@ int factorial(){
 
 
 int prime(){
+    //not completely done
+    //display all primes from 1 to n
     int n ;
-    int i = 2;
-    vector<int> vect;
-    cout << "Enter n to get primes : ";
+    
+    bool isPrime = true;
+
+    cout << "Enter a positive integer: ";
     cin >> n;
 
-    while (i < n){
-        if (n%i == 0){
-            cout << n << "is not a prime." << endl;
+    if (n <= 1) {
+        isPrime = false;
+    } else {
+        for (int i = 2; i * i <= n; i++) {
+            if (n % i == 0) {
+                isPrime = false;
+                break;
+            }
         }
-        else {
-            cout << n << "is a prime number." << endl;
-        }
-        i++;
     }
+
+    if (isPrime)
+        cout << n << " is a prime number." << endl;
+    else
+        cout << n;
+    
+
+    
+    return 0;
+}
+
+int printDigits(){
+    int num ;
+    cout << "Enter an integer : ";
+    cin >> num;
+    string str = to_string(num);
+    
+    for (auto i : str){
+        cout << i << " ";
+    }
+}
+
+int binaryRep(){
+    int arr[] = {32,16,8,4,2,1};
+    int n;
+    cout << "Enter the number : ";
+    cin >> n;
+    int size = sizeof(arr)/sizeof(arr[0]);
+
+    for (int i = 0 ; i < size ; i++){
+        if (n >= arr[i]){
+            n = n-arr[i];
+            cout << "1";
+        }
+        else{
+            cout << 0;
+        }
+
+    }
+    return 0;
+}
+
+int kmtomile(){
+
+    float km;
+    float miles;
+    cout << "Enter Km : ";
+    cin >> km;
+
+    miles = km*(2.16);
+
+    cout << km <<  " km = " << miles << "miles";
+
+    
+}
+
+int bitwiseEvenOdd(){
+    
     return 0;
 }
 int main(){
 
     // areaOfCircle();
     // factorial();
-    prime();
+    // prime();
+    // printDigits();
+    // binaryRep();
+    kmtomile();
     return 0;
 }
