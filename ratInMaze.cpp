@@ -8,8 +8,8 @@ bool isSafe(int maze[][4], int row, int col, int srcX, int srcY, int newX, int n
     //check bounds.
 
     if(
-        (newX >= 0 && newX < col) &&
-        (newY >= 0 && newY < row) &&
+        (newX >= 0 && newX < row) &&
+        (newY >= 0 && newY < col) &&
         maze[newX][newY] == 1 &&
         visited[newX][newY] == false){
             // if these all conditions matches then it is safe to go at that newX, newY
@@ -24,7 +24,7 @@ void findALLPath(int maze[][4], int row, int col, int srcX, int srcY, string &ou
     // base case
     // stop when destination comes.
     //destination indexes = for X = [row-1], for Y = [col-1].
-    if(srcX == row-1 && srcY == col-1){
+    if(srcX == col-1 && srcY == row-1){
         cout << output << endl;
         return;
     }
@@ -32,8 +32,8 @@ void findALLPath(int maze[][4], int row, int col, int srcX, int srcY, string &ou
     //solve 1 case, rest will be handled by recursion.
 
 //North = UP
-    int newX = srcX;
-    int newY = srcY-1;
+    int newX = srcX-1;
+    int newY = srcY;
     if(isSafe(maze, row, col, srcX, srcY, newX, newY, visited)){
         // mark visited
         visited[newX][newY] = true;
@@ -46,8 +46,8 @@ void findALLPath(int maze[][4], int row, int col, int srcX, int srcY, string &ou
     }
     
     //South = Down
-    newX = srcX;
-    newY = srcY+1;
+    newX = srcX+1;
+    newY = srcY;
     if(isSafe(maze, row, col, srcX, srcY, newX, newY, visited)){
         // mark visited
         visited[newX][newY] = true;
@@ -60,8 +60,8 @@ void findALLPath(int maze[][4], int row, int col, int srcX, int srcY, string &ou
     }
     
     // West = Left
-    newX = srcX-1;
-    newY = srcY;
+    newX = srcX;
+    newY = srcY-1;
     if(isSafe(maze, row, col, srcX, srcY, newX, newY, visited)){
         // mark visited
         visited[newX][newY] = true;
@@ -74,8 +74,8 @@ void findALLPath(int maze[][4], int row, int col, int srcX, int srcY, string &ou
     }
     
     // East = Right
-    newX = srcX+1;
-    newY = srcY;
+    newX = srcX;
+    newY = srcY+1;
     if(isSafe(maze, row, col, srcX, srcY, newX, newY, visited)){
         // mark visited
         visited[newX][newY] = true;
@@ -91,7 +91,7 @@ int main(){
     int maze[4][4] = {
         {1,0,0,0},
         {1,1,0,0},
-        {1,1,0,0},
+        {1,1,1,0},
         {1,1,1,1}
     };
 
@@ -100,7 +100,7 @@ int main(){
     int srcX = 0;//X coordinate at each stage
     int srcY = 0;//Y coordinate
 
-    string output = "";
+    string output = " ";
 
     // bool 2D array for visited tracking handling.
     vector< vector <bool> > visited (row, vector <bool> (col, false)); 
