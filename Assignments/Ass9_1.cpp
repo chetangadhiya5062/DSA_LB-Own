@@ -1,8 +1,8 @@
 #include <iostream>
-#include<vector>
+#include <vector>
 using namespace std;
 float areaOfCircle(){
-    float area = 0;
+    float area = 0; 
     const float pi = 3.14;
     float r;
 
