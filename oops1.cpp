@@ -4,7 +4,7 @@
 
 using namespace std;
 
-class student{
+class Student{
 private :
     string gf;
 
@@ -15,12 +15,14 @@ public :
     string name;
     int nos;
 
+    // no empty student
     // ctor : default ctor : assigns garbage value
-    // no khokhala student
-
+    Student(){
+        cout << "Student ctor called" << endl;
+    }
     //parametrize ctor: (constructor with parameters given)
     // if two different type of ctor present in the class., it is called polymorphism.
-    Student (int age, bool present, string name, int nos, string gf){
+    Student (int id, int age, bool present, string name, int nos, string gf){
         this -> id = id;
         this -> name = name;
         this -> age = age;
@@ -32,7 +34,7 @@ public :
 
     }
 
-    Student (int age, bool present, string name, int nos){
+    Student (int id, int age, bool present, string name, int nos){
         this -> id = id;
         this -> name = name;
         this -> age = age;
@@ -43,8 +45,35 @@ public :
 
     }
 
+    void study (){
+        cout << "Darshan is studying" << endl;
+    }
+
+    void sleep (){
+        cout << " Prerak is Sleeping " << endl;
+    }
+
+    void bunk(){
+        cout << "Hil always bunks the class." << endl;
+    }
+
+private :
+    void gfchatting(){
+        cout << "Chatting" << endl;
+    }
+    
+};
 int main(){
     
-}
+    //copy ctor and ctor doesnot have any return type.
+    //this is copy ctor.
+    Student s1(1, 12,  1, "Chhota Bheem", 1, "Chutki");// call of parametrize ctor
+    // Student s1(1, 12,  1, "Chhota Bheem", 1);// call of parametrize ctor without GF
+    Student s2;
+    s2 = s1;// s2 is initialized via copy ctor
 
+    cout << s1.name << endl;
+    cout << s2.name << endl;
+
+    return 0;
 }
