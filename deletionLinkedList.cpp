@@ -32,6 +32,8 @@ void printLL(Node* head){
         cout << temp->data << "->";
         temp = temp -> next;
     }
+    cout << "NULL" << endl; // <-- ADD THIS
+
 }
 
 // void findTail(Node* head){
@@ -56,11 +58,11 @@ int getLength(Node* head){
     }
     return length;
 }
-void deleteAtPosition(Node* head, Node* tail, int pos){
+void deleteAtPosition(Node* &head, Node* &tail, int pos){
     
 
     int length = getLength(head);
-    Node* prev;
+    // Node* prev;
     
     if (head == NULL){
         cout << "Linkedlist is Empty. you can not delete this node." << endl;
@@ -93,7 +95,7 @@ void deleteAtPosition(Node* head, Node* tail, int pos){
     while (pos != 1){
         pos --;
         prev = curr;
-        curr -> next;
+        curr = curr -> next;
     }    
     //step 2: prev -> next ma curr no next node add karo.
     prev -> next = curr -> next;
